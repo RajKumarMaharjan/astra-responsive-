@@ -48,19 +48,6 @@ h1 {
     font-family: "Plus Jakarta Sans", sans-serif;
     line-height: 1.4em;
     font-weight: 600;
-
-    @media (max-width:780px) {
-        font-size: 52px;
-        font-weight: 500;
-    }
-
-    @media (max-width:580px) {
-        font-size: 38px;
-    }
-
-    @media (max-width:380px) {
-        font-size: 32px;
-    }
 }
 
 h2 {
@@ -104,6 +91,29 @@ p {
 img {
     width: 100%;
     object-fit: cover;
+}
+
+@keyframes slide-img {
+    from {
+        transform: translateX(800px);
+        opacity: o;
+    }
+
+    to {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-text {
+    from {
+        transform: translateX(-800px);
+    }
+
+    to {
+        transform: translate(0);
+        opacity: 1;
+    }
 }
 
 header div {
@@ -174,14 +184,14 @@ div nav img {
     opacity: 1;
 }
 
-.nav-menu .nav-socialmedia {
+.nav-menu .nav-social-media {
     display: flex;
     gap: 20px;
     background: transparent;
     cursor: pointer;
 }
 
-.nav-socialmedia i {
+.nav-social-media i {
     padding: 1px 4px;
     font-size: 18px;
 
@@ -190,7 +200,7 @@ div nav img {
     }
 }
 
-.nav-menu .nav-socialmedia i:nth-child(2) {
+.nav-menu .nav-social-media i:nth-child(2) {
     background: #fff;
     border-radius: 50%;
     color: var(--ast-global-color-1);
@@ -212,7 +222,7 @@ div nav img {
     gap: 6px;
     cursor: pointer;
     transition-duration: .5s;
-    z-index: 1;
+    z-index: 5;
 
     @media (max-width:1094px) {
         display: flex;
@@ -224,6 +234,7 @@ div nav img {
     height: 4px;
     border-radius: 4px;
     background: #ffffff;
+    z-index: 1;
 }
 
 #checkbox:checked+.toggle .bars {
@@ -263,6 +274,7 @@ div nav img {
     right: 0;
     right: -300px;
     transition: right 0.3s ease;
+    z-index: 1;
     display: none;
 
     @media (max-width:1094px) {
@@ -285,7 +297,7 @@ div nav img {
     text-decoration: none;
     list-style: none;
     margin-top: 100px;
-    
+
 }
 
 .sidebar-menu ul li {
@@ -312,16 +324,12 @@ header div .hero {
     display: grid;
     grid-template-columns: auto 43%;
     justify-content: space-between;
-    padding: 80px 130px;
+    align-items: center;
+    padding: 20px 130px 130px;
     background: none;
 
     @media (max-width:1094px) {
-        /* grid-template-columns: auto; */
-        display: flex;
-        flex-direction: column-reverse;
         padding-inline: 50px;
-        padding-top: 0px;
-        gap: 20px;
     }
 
     @media (max-width:1040px) {
@@ -330,6 +338,12 @@ header div .hero {
 
     @media (max-width:780px) {
         padding-inline: 50px;
+    }
+
+    @media (max-width:580px) {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 80px;
     }
 }
 
@@ -342,12 +356,43 @@ header div .hero {
 
 .hero div h1 {
     margin-bottom: 20px;
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+    @media (max-width:1094px) {
+        font-size: 44px;
+        font-weight: 500;
+    }
+
+    @media (max-width:780px) {
+        font-size: 32px;
+    }
+
+    @media (max-width:680px) {
+        font-size: 28px;
+    }
 }
 
 .hero div p {
     font-family: "Plus Jakarta Sans", sans-serif;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     padding-right: 30%;
+    color: #ffffff;
+    line-height: 1.8;
+    font-size: 18px;
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @media (max-width:780px) {
+        font-size: 16px;
+        padding-right: 20%;
+    }
 }
 
 .hero div button {
@@ -356,13 +401,36 @@ header div .hero {
     border-radius: 50px;
     font-size: 20px;
     font-weight: 600;
-    padding: 20px 40px;
+    padding: 28px 40px;
     color: var(--ast-global-color-2);
     outline: none;
     cursor: pointer;
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @media (max-width:992px) {
+        font-size: 16px;
+        padding: 20px 28px;
+    }
+
+    @media (max-width:780px) {
+        font-size: 16px;
+        padding: 16px 20px;
+    }
 }
 
-section .cards {
+.hero img {
+    animation-name: slide-img;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.cards {
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr 1fr; */
     grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
@@ -380,7 +448,42 @@ section .cards {
     }
 }
 
-section .cards .card-1 h3 {
+.cards .card-1 {
+    opacity: 0;
+}
+
+.cards .card-1:nth-child(1) {
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.cards .card-1:nth-child(2) {
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.cards .card-1:nth-child(3) {
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-delay: 4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.cards .card-1:nth-child(4) {
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-delay: 6s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.cards .card-1 h3 {
     margin: 16px 0px;
     text-align: start;
 }
@@ -395,7 +498,7 @@ section .cards .card-1 h3 {
     width: 20%;
 }
 
-section .our-services {
+.our-services {
     padding: 0 130px;
     margin-top: 100px;
 
@@ -408,14 +511,14 @@ section .our-services {
     }
 }
 
-section .our-services h2 {
-    margin-bottom: 20px;
+.our-services h2 {
+    margin: 50px 0;
 }
 
 .our-services .services-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(284px, 100%), 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 1.6rem;
 }
 
 .services-cards .card h3 {
@@ -433,14 +536,15 @@ section .our-services h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
+    align-items: center;
     gap: 80px;
 
     @media (max-width:1094px) {
-        grid-template-columns: auto;
         padding-inline: 50px;
     }
 
     @media (max-width:780px) {
+        grid-template-columns: auto;
         padding-inline: 50px;
     }
 }
@@ -448,6 +552,10 @@ section .our-services h2 {
 .team .team-text h2 {
     margin-bottom: 20px;
     padding-right: 40px;
+
+    @media (max-width:1094px) {
+        font-size: 32px;
+    }
 }
 
 .team .team-text p {
@@ -463,7 +571,7 @@ section .our-services h2 {
     margin-block-end: 0;
 }
 
-section .user {
+.user {
     background-color: var(--ast-global-color-9);
 }
 
@@ -508,7 +616,7 @@ section .user {
     padding: 50px 0px;
 }
 
-section .choose-us {
+.choose-us {
     padding: 144px 130px;
 
     @media (max-width:1094px) {
@@ -543,7 +651,7 @@ section .choose-us {
     margin-top: 20px;
 }
 
-section .make-website {
+.make-website {
     background: var(--linear-bg-color);
     padding: 104px 130px;
     text-align: center;
@@ -553,7 +661,7 @@ section .make-website {
     }
 }
 
-section .make-website h2 {
+.make-website h2 {
     color: #ffffff;
     max-width: 520px;
     margin-inline: auto;
@@ -572,7 +680,7 @@ section .make-website h2 {
     cursor: pointer;
 }
 
-section .reply {
+.reply {
     padding: 100px 130px;
 
     @media (max-width:1094px) {
@@ -584,7 +692,7 @@ section .reply {
     }
 }
 
-section .reply h4 {
+.reply h4 {
     font-size: 23px;
     font-weight: 600;
     font-family: 'Plus Jakarta Sans', sans-serif;
