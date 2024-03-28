@@ -645,6 +645,12 @@ header div .hero {
 .choose-us-cards .card img {
     width: 64px;
     margin-bottom: 16px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+
+    &:hover {
+       scale: 1.1;
+    }
 }
 
 .choose-us-cards .card p {
