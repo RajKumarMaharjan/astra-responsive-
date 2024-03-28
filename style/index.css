@@ -405,12 +405,10 @@ header div .hero {
     color: var(--ast-global-color-2);
     outline: none;
     cursor: pointer;
-    animation-name: slide-text;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    opacity: 0;
+
+    &:hover {
+        opacity: 0.8;
+    }
 
     @media (max-width:992px) {
         font-size: 16px;
