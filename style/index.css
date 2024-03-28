@@ -405,9 +405,11 @@ header div .hero {
     color: var(--ast-global-color-2);
     outline: none;
     cursor: pointer;
+    transition-duration: 0.3s;
 
     &:hover {
-        opacity: 0.8;
+        opacity: 0.9;
+        color: #ffffff;
     }
 
     @media (max-width:992px) {
@@ -682,6 +684,12 @@ header div .hero {
     color: var(--ast-global-color-2);
     outline: none;
     cursor: pointer;
+    transition-duration: 0.3s;
+
+    &:hover {
+        opacity: 0.9;
+        color: #ffffff;
+    }
 }
 
 .reply {
