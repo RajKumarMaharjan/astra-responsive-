@@ -405,6 +405,12 @@ header div .hero {
     color: var(--ast-global-color-2);
     outline: none;
     cursor: pointer;
+    animation-name: slide-text;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    opacity: 0;
     transition-duration: 0.3s;
 
     &:hover {
